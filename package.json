@@ -1,0 +1,22 @@
+{
+  "name": "vigilix",
+  "version": "1.0.0",
+  "description": "Problem Statement 1446 - Developing a GUI based hardening script for Ubuntu operating system with flexibility to cater for organisational security policies",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron app/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LunaticPython2003/SIH-2023.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LunaticPython2003/SIH-2023/issues"
+  },
+  "homepage": "https://github.com/LunaticPython2003/SIH-2023#readme",
+  "dependencies": {
+    "electron": "^26.2.2"
+  }
+}
