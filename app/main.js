@@ -9,13 +9,13 @@ function createWindow() {
     width: 1000,
     height: 710,
     resizable: false,
-    frame: false,
     webPreferences: {
       nodeIntegration: true,
     },
     webPreferences: {
       nodeIntegration: true,
     },
+    icon: __dirname + './logo.png',
   });
 
   const indexPath = url.format({

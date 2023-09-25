@@ -20,7 +20,7 @@ export default function Levels() {
 
     return (
         <>
-            <div className="flex flex-col w-full bg-white">
+            <div className="screen flex flex-col w-full bg-white">
                 <Hero />
                 <div className="mx-10">
                     <Accordion className="p-3" open={open === 1}>
