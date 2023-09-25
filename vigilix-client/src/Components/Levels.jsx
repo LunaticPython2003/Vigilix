@@ -50,7 +50,7 @@ export default function Levels() {
                             <ul className="flex px-5 justify-between font-bold ">
                                 <li>Disables Wifi</li>
                                 <li>Disables Bluetooth</li>
-                                <li>Disables time</li>
+                                <li>Disables USB</li>
                                 <li>Disables Location</li>
                             </ul>
                             <div className="flex items-center justify-center">
@@ -80,7 +80,7 @@ export default function Levels() {
                             <ul className="flex px-5 justify-between font-bold ">
                                 <li>Disables Wifi</li>
                                 <li>Disables Bluetooth</li>
-                                <li>Disables time</li>
+                                <li>Disables USB</li>
                                 <li>Disables Location</li>
                             </ul>
                             <div className="flex items-center justify-center">
@@ -99,7 +99,7 @@ export default function Levels() {
                             <ul className="flex px-5 justify-between font-bold ">
                                 <li>Disables Wifi</li>
                                 <li>Disables Bluetooth</li>
-                                <li>Disables time</li>
+                                <li>Disables USB</li>
                                 <li>Disables Location</li>
                             </ul>
                             <div className="flex items-center justify-center">
@@ -118,7 +118,7 @@ export default function Levels() {
                             <ul className="flex px-5 justify-between font-bold ">
                                 <li>Disables Wifi</li>
                                 <li>Disables Bluetooth</li>
-                                <li>Disables time</li>
+                                <li>Disables USB</li>
                                 <li>Disables Location</li>
                             </ul>
                             <div className="flex items-center justify-center">
@@ -137,7 +137,7 @@ export default function Levels() {
                             <ul className="flex px-5 justify-between font-bold ">
                                 <li>Disables Wifi</li>
                                 <li>Disables Bluetooth</li>
-                                <li>Disables time</li>
+                                <li>Disables USB</li>
                                 <li>Disables Location</li>
                             </ul>
                             <div className="flex items-center justify-center">
