@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className='flex border-2 border-black'>
+      <div className='fixed flex border-2 border-black h-full w-full'>
         <Navbar/>
         <Levels/>
       </div>
