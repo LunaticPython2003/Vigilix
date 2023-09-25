@@ -2,7 +2,7 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const express = require('express')
 const fs = require('fs');
-const { exec } = require('child_process')
+const sudo = require('sudo-prompt');
 const url = require('url');
 
 const expressApp = express();
@@ -12,13 +12,17 @@ expressApp.post('/execute-script', (req, res) => {
 
   fs.access(scriptPath, fs.constants.F_OK, (err) => {
     if (err) {
-      console.log("Coulnot access the script")
+      console.log("Could not access the script")
       return res.status(500).send({ success: false, message: 'Error accessing the script file' });
     }
 
-    exec(`chmod +x ${scriptPath} && ${scriptPath}`, (error, stdout, stderr) => {
+    const options = {
+      name: 'Electron',
+    };
+
+    sudo.exec(`chmod +x ${scriptPath} && ${scriptPath}`, options, (error, stdout, stderr) => {
       if (error) {
-        console.log("Some Error Occured", error)
+        console.log("Some Error Occurred", error)
         return res.status(500).send({ success: false, message: 'Error executing the script' });
       }
 
@@ -39,9 +43,6 @@ function createWindow() {
     width: 1000,
     height: 730,
     resizable: false,
-    webPreferences: {
-      nodeIntegration: true,
-    },
     webPreferences: {
       nodeIntegration: true,
     },
