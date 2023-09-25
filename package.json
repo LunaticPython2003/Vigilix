@@ -4,7 +4,7 @@
   "description": "Problem Statement 1446 - Developing a GUI based hardening script for Ubuntu operating system with flexibility to cater for organisational security policies",
   "main": "main.js",
   "scripts": {
-    "start": "electron app/main.js"
+    "start": "electron app/main.js --safe"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/LunaticPython2003/SIH-2023#readme",
   "dependencies": {
-    "electron": "^26.2.2"
+    "electron": "^27.0.0-beta.6"
   }
 }
