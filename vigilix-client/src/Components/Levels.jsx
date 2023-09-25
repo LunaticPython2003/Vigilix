@@ -13,13 +13,14 @@ export default function Levels() {
 
     const handleButtonClick = () => {
         setButtonText((prev) => (prev === "Activate" ? "Deactivate" : "Activate"));
+        document.getElementById('my_modal_1').showModal()
     };
 
     const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
     return (
         <>
-            <div className="flex flex-col w-full bg-[#F6CAD3]">
+            <div className="flex flex-col w-full bg-white">
                 <Hero />
                 <div className="mx-10">
                     <Accordion className="p-3" open={open === 1}>
@@ -38,6 +39,17 @@ export default function Levels() {
                             </ul>
                             <div className="flex items-center justify-center">
                                 <button className="border-2 border-blue-500 bg-blue-200 rounded p-2" onClick={handleButtonClick}>{buttonText}</button>
+                                <dialog id="my_modal_1" className="modal">
+                                    <div className="modal-box bg-white">
+                                        <h3 className="font-bold text-lg text-black">LEVEL 1 </h3>
+                                        <p className="py-4 text-black">Guardian Core is activated !</p>
+                                        <div className="modal-action">
+                                            <form method="dialog">
+                                                <button className="btn bg-[#E6E6E6] text-black border-none hover:bg-green-200">Close</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </dialog>
                             </div>
                         </AccordionBody>
                     </Accordion>
