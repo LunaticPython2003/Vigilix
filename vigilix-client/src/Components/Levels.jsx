@@ -13,7 +13,23 @@ export default function Levels() {
 
     const handleButtonClick = () => {
         setButtonText((prev) => (prev === "Activate" ? "Deactivate" : "Activate"));
-        document.getElementById('my_modal_1').showModal()
+        document.getElementById('my_modal_1').showModal();
+
+        fetch('http://localhost:3000/execute-script', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Script executed successfully:', data.output);
+                } else {
+                    console.error('Error executing script:', data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
     };
 
     const handleOpen = (value) => setOpen(open === value ? 0 : value);

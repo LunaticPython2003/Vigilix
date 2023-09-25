@@ -5,7 +5,6 @@ sudo su
 
 # Turn off Bluetooth
 rmmod --force btusb
-
 # To enable - modprobe btusb
 
 # Ability to install apps
