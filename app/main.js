@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
+Menu.setApplicationMenu(false)
 const path = require('path');
 const express = require('express')
 const fs = require('fs');
