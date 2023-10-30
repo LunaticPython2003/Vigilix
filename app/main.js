@@ -7,29 +7,62 @@ const url = require('url');
 
 const expressApp = express();
 
+let state = true;
+
 expressApp.post('/execute-script', (req, res) => {
-  const scriptPath = path.join(__dirname, './scripts/level-1.sh');
+  
+  if (state) {
 
-  fs.access(scriptPath, fs.constants.F_OK, (err) => {
-    if (err) {
-      console.log("Could not access the script")
-      return res.status(500).send({ success: false, message: 'Error accessing the script file' });
-    }
+    const scriptPath = path.join(__dirname, './scripts/level-1.sh');
 
-    const options = {
-      name: 'Electron',
-    };
-
-    sudo.exec(`chmod +x ${scriptPath} && ${scriptPath}`, options, (error, stdout, stderr) => {
-      if (error) {
-        console.log("Some Error Occurred", error)
-        return res.status(500).send({ success: false, message: 'Error executing the script' });
+    fs.access(scriptPath, fs.constants.F_OK, (err) => {
+      if (err) {
+        console.log("Could not access the script")
+        return res.status(500).send({ success: false, message: 'Error accessing the script file' });
       }
 
-      console.log("Successfully hit the api")
-      return res.status(200).send({ success: true, message: 'Script executed successfully', output: stdout });
+      const options = {
+        name: 'Electron',
+      };
+
+      sudo.exec(`chmod +x ${scriptPath} && ${scriptPath}`, options, (error, stdout, stderr) => {
+        if (error) {
+          console.log("Some Error Occurred", error)
+          return res.status(500).send({ success: false, message: 'Error executing the script' });
+        }
+
+        console.log("Successfully hit the api")
+        return res.status(200).send({ success: true, message: 'Script executed successfully', output: stdout });
+      });
     });
-  });
+
+    state = false;
+  }
+  else {
+    const scriptPath = path.join(__dirname, './scripts/level-1-reset.sh');
+
+    fs.access(scriptPath, fs.constants.F_OK, (err) => {
+      if (err) {
+        console.log("Could not access the script")
+        return res.status(500).send({ success: false, message: 'Error accessing the script file' });
+      }
+
+      const options = {
+        name: 'Electron',
+      };
+
+      sudo.exec(`chmod +x ${scriptPath} && ${scriptPath}`, options, (error, stdout, stderr) => {
+        if (error) {
+          console.log("Some Error Occurred", error)
+          return res.status(500).send({ success: false, message: 'Error executing the script' });
+        }
+
+        console.log("Successfully hit the api to deactivate it")
+        return res.status(200).send({ success: true, message: 'Script executed successfully', output: stdout });
+      });
+    });
+
+  }
 });
 
 expressApp.listen(3000, () => {
